@@ -25,13 +25,13 @@
     <style>
         html { scroll-behavior: smooth; }
         .custom-scrollbar::-webkit-scrollbar { width: 5px; height: 5px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #e6dfd5; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #8f6a36; border-radius: 10px; }
     </style>
 </head>
 <body class="bg-stone-200/60 text-stone-800 antialiased font-sans pb-16 selection:bg-rose-100 selection:text-rose-900">
 
     <script>
-        const WHATSAPP_NUMBER = "56912345678"; // Tu número de WhatsApp
+        const WHATSAPP_NUMBER = "56930759866"; // Tu número de WhatsApp
     </script>
 
     <!-- HEADER -->
@@ -47,7 +47,7 @@
                     <a href="#" class="block px-4 py-2.5 text-sm text-stone-700 hover:bg-rose-50 hover:text-rose-700 transition-colors">Inicio</a>
                     <a href="#catalogo" onclick="changeCategory('todos')" class="block px-4 py-2.5 text-sm text-stone-700 hover:bg-rose-50 hover:text-rose-700 transition-colors">Catálogo</a>
                     <a href="#redes-sociales" class="block px-4 py-2.5 text-sm text-stone-700 hover:bg-rose-50 hover:text-rose-700 transition-colors">Redes Sociales 📱</a>
-                    <a id="menu-whatsapp" href="#" target="_blank" class="block px-4 py-2.5 text-sm text-stone-700 hover:bg-rose-50 hover:text-rose-700 transition-colors">Consultas (WhatsApp) 💬</a>
+                    <a id="menu-whatsapp" href="https://wa.me/${WHATSAPP_NUMBER}" target="_blank" class="block px-4 py-2.5 text-sm text-stone-700 hover:bg-rose-50 hover:text-rose-700 transition-colors">Consultas (WhatsApp) 💬</a>
                     <a href="#nosotros" class="block px-4 py-2.5 text-sm text-stone-700 hover:bg-rose-50 hover:text-rose-700 transition-colors">Nosotros ✨</a>
                 </div>
             </div>
@@ -269,7 +269,7 @@
         ];
         
         // Forzar a que todas las rutas de imágenes se busquen en minúsculas para GitHub
-products.forEach(p => p.img = p.img.toLowerCase());
+        products.forEach(p => p.img = p.img.toLowerCase());
 
         const subcategoryLabels = {
             "femenino": "Femenino 🌸", "masculino": "Masculino 💼", "splash": "Splash ✨", "barberia": "Afeitado & Barbería 🪒", "rostro-m": "Rostro Hombre 🧴", "cabello-m": "Cabello Hombre 🕶️", "crema-manos": "Crema de Manos 🧴", "crema-cuerpo": "Crema de Cuerpo 🧴", "shampoo": "Shampoo 🧼", "labiales": "Labiales 💄"
@@ -325,8 +325,10 @@ products.forEach(p => p.img = p.img.toLowerCase());
                 const isOutOfStock = product.inStock === false;
                 return `
                     <div class="bg-white rounded-2xl border border-stone-100 overflow-hidden flex flex-col justify-between group hover:shadow-md transition-shadow duration-300 ${isOutOfStock ? 'opacity-80' : ''}">
+                        <!-- Agregada la clase overflow-hidden aquí -->
                         <div class="relative overflow-hidden aspect-[4/5] bg-stone-50 flex items-center justify-center ${isOutOfStock ? 'cursor-default' : 'cursor-pointer'}" ${isOutOfStock ? '' : `onclick="openLightbox(${product.id})"`}>
-                            <img src="${encodeURI(product.img)}" alt="${product.title}" class="w-full h-full object-cover transition-transform duration-500 ${isOutOfStock ? '' : 'group-hover:scale-102'}">
+                            <!-- Agregado el efecto hover de Tailwind de forma suave (hover:scale-105) -->
+                            <img src="${encodeURI(product.img)}" alt="${product.title}" class="w-full h-full object-cover transition-transform duration-500 ${isOutOfStock ? '' : 'hover:scale-105'}">
                             ${isOutOfStock ? `
                             <div class="absolute inset-0 bg-stone-900/25 backdrop-blur-[1px] flex items-center justify-center z-10">
                                 <span class="bg-rose-600/95 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg border border-rose-500">Agotado</span>
