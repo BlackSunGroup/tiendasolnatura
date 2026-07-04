@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Sol Natura - Belleza & Cuidado</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .custom-scrollbar::-webkit-scrollbar { width: 5px; height: 5px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #e6dfd5; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-stone-200/60 text-stone-800 antialiased font-sans pb-16 selection:bg-rose-100 selection:text-rose-900">
+
+    <script>
+        const WHATSAPP_NUMBER = "56912345678"; // Tu número de WhatsApp
+    </script>
+
+    <!-- HEADER -->
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-stone-100">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            
+            <!-- MENÚ DESPLEGABLE -->
+            <div class="relative">
+                <button id="menu-btn" class="text-stone-600 focus:outline-none p-2 rounded-full hover:bg-stone-50 transition-colors">
+                    <i class="fa-solid fa-bars-staggered text-xl"></i>
+                </button>
+                <div id="dropdown-menu" class="hidden absolute left-0 mt-3 w-52 bg-white rounded-2xl shadow-xl py-2 border border-stone-100 animate-fadeIn">
+                    <a href="#" class="block px-4 py-2.5 text-sm text-stone-700 hover:bg-rose-50 hover:text-rose-700 transition-colors">Inicio</a>
+                    <a href="#catalogo" onclick="changeCategory('todos')" class="block px-4 py-2.5 text-sm text-stone-700 hover:bg-rose-50 hover:text-rose-700 transition-colors">Catálogo</a>
+                    <a href="#redes-sociales" class="block px-4 py-2.5 text-sm text-stone-700 hover:bg-rose-50 hover:text-rose-700 transition-colors">Redes Sociales 📱</a>
+                    <a id="menu-whatsapp" href="#" target="_blank" class="block px-4 py-2.5 text-sm text-stone-700 hover:bg-rose-50 hover:text-rose-700 transition-colors">Consultas (WhatsApp) 💬</a>
+                    <a href="#nosotros" class="block px-4 py-2.5 text-sm text-stone-700 hover:bg-rose-50 hover:text-rose-700 transition-colors">Nosotros ✨</a>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-2.5">
+                <!-- LOGO SUPERIOR CORREGIDO A MAYÚSCULA -->
+                <img src="logo.JPG" alt="Sol Natura Logo" class="w-12 h-12 rounded-full object-cover border border-amber-200/60 shadow-sm">
+                <div class="flex flex-col">
+                    <span class="font-serif text-base font-bold tracking-wide text-stone-800 leading-none">Sol Natura</span>
+                    <span class="text-[9px] tracking-[0.2em] font-semibold text-emerald-700 uppercase mt-0.5">Belleza & Cuidado</span>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <div class="hidden sm:flex space-x-4 text-stone-400">
+                    <a href="http://www.ingstagram.com/tiendasolnatura" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;"><i class="fab fa-instagram"></i></a>
+                </div>
+                <button id="cart-toggle-btn" class="relative p-2.5 text-stone-700 hover:bg-stone-50 rounded-full transition-colors focus:outline-none">
+                    <i class="fa-solid fa-bag-shopping text-xl"></i>
+                    <span id="cart-badge" class="absolute top-1 right-1 bg-rose-500 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full hidden">0</span>
+                </button>
+           </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        
+        <!-- Banner -->
+        <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-amber-50/70 via-rose-50/40 to-stone-100/80 p-8 md:p-12 text-center mb-10 border border-white shadow-sm">
+            <div class="max-w-xl mx-auto">
+                <span class="inline-block px-3 py-1 bg-emerald-50 text-emerald-800 text-[10px] uppercase tracking-widest font-semibold rounded-full mb-4 border border-emerald-100">productos 100% Originales</span>
+                <h1 class="font-serif text-3xl sm:text-4xl text-stone-800 mb-3 leading-tight">Encuentra el cuidado perfecto para tu piel</h1>
+                <p class="text-xs sm:text-sm text-stone-600 leading-relaxed mb-6">Regálate momentos únicos con exquisitos aromas de Natura y Avon. Elige tus favoritos y finaliza tu orden por WhatsApp de forma personalizada.</p>
+                
+                <a href="#catalogo" onclick="changeCategory('todos')" class="inline-block bg-stone-800 hover:bg-stone-900 text-white text-xs font-semibold tracking-wider uppercase px-6 py-3 rounded-full transition-all shadow-md hover:-translate-y-0.5">Ver Catálogo</a>
+                
+                <!-- LOGO CENTRAL CORREGIDO A MAYÚSCULA -->
+                <div class="mt-8">
+                    <img src="logo.JPG" alt="Sol Natura Logo Grande" class="w-60 h-60 md:w-60 md:h-60 rounded-full object-cover border-2 border-amber-200/60 shadow-md mx-auto">
+                </div>
+            </div>
+        </div>
+        
+        <!-- BARRA DE CATEGORÍAS -->
+        <div class="mb-8 space-y-4">
+            <div>
+                <span class="text-[10px] tracking-widest font-semibold text-stone-400 uppercase block mb-2.5">Categorías</span>
+                <div id="main-category-bar" class="flex gap-2 overflow-x-auto pb-2 custom-scrollbar snap-x">
+                    <button onclick="changeCategory('todos')" class="main-cat-btn snap-start bg-stone-800 text-white text-xs font-medium px-4 py-2 rounded-full shadow-sm transition-all whitespace-nowrap">Todos</button>
+                    <button onclick="changeCategory('perfumeria')" class="main-cat-btn snap-start bg-white text-stone-600 border border-stone-200/60 hover:border-rose-300 text-xs font-medium px-4 py-2 rounded-full transition-all whitespace-nowrap">Perfumería</button>
+                    <button onclick="changeCategory('hombre')" class="main-cat-btn snap-start bg-white text-stone-600 border border-stone-200/60 hover:border-rose-300 text-xs font-medium px-4 py-2 rounded-full transition-all whitespace-nowrap">Cuidado Masculino 💼</button>
+                    <button onclick="changeCategory('corporal')" class="main-cat-btn snap-start bg-white text-stone-600 border border-stone-200/60 hover:border-rose-300 text-xs font-medium px-4 py-2 rounded-full transition-all whitespace-nowrap">Cuerpo & Manos</button>
+                    <button onclick="changeCategory('desodorantes')" class="main-cat-btn snap-start bg-white text-stone-600 border border-stone-200/60 hover:border-rose-300 text-xs font-medium px-4 py-2 rounded-full transition-all whitespace-nowrap">Desodorantes</button>
+                    <button onclick="changeCategory('skin')" class="main-cat-btn snap-start bg-white text-stone-600 border border-stone-200/60 hover:border-rose-300 text-xs font-medium px-4 py-2 rounded-full transition-all whitespace-nowrap">Skin / Rostro</button>
+                    <button onclick="changeCategory('cabello')" class="main-cat-btn snap-start bg-white text-stone-600 border border-stone-200/60 hover:border-rose-300 text-xs font-medium px-4 py-2 rounded-full transition-all whitespace-nowrap">Cabello</button>
+                    <button onclick="changeCategory('cosmeticos')" class="main-cat-btn snap-start bg-white text-stone-600 border border-stone-200/60 hover:border-rose-300 text-xs font-medium px-4 py-2 rounded-full transition-all whitespace-nowrap">Cosméticos</button>
+                </div>
+            </div>
+
+            <!-- BARRA DE SUBCATEGORÍAS DINÁMICAS -->
+            <div id="sub-category-container" class="hidden opacity-0 transition-all duration-300 bg-stone-100/50 p-3 rounded-2xl border border-stone-200/30">
+                <span class="text-[9px] tracking-widest font-semibold text-stone-400 uppercase block mb-2">Filtrar por tipo</span>
+                <div id="sub-category-bar" class="flex gap-1.5 overflow-x-auto pb-1 custom-scrollbar snap-x">
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN CATÁLOGO -->
+        <section id="catalogo">
+            <div class="flex items-baseline justify-between border-b border-stone-200 pb-3 mb-6">
+                <h2 id="category-title" class="font-serif text-2xl text-stone-800">Todo el Catálogo</h2>
+                <span id="product-count" class="text-xs text-stone-400 font-medium">0 productos</span>
+            </div>
+            <div id="product-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            </div>
+        </section>
+
+        <!-- SECCIÓN: REDES SOCIALES -->
+        <section id="redes-sociales" class="mt-20 bg-white rounded-3xl p-8 border border-stone-100 shadow-sm text-center">
+            <span class="text-[10px] tracking-widest font-semibold text-rose-500 uppercase block mb-2">Comunidad</span>
+            <h2 class="font-serif text-2xl text-stone-800 mb-4">Síguenos en Redes Sociales</h2>
+            <p class="text-xs text-stone-500 max-w-md mx-auto mb-8">Descubre tips de autocuidado, rutinas de belleza diaria y entérate antes que nadie de todas nuestras novedades.</p>
+            
+            <div class="flex justify-center items-center gap-8">
+                <a href="https://instagram.com/tiendasolnatura" target="_blank" class="flex flex-col items-center gap-2.5 group">
+                    <div class="w-14 h-14 bg-rose-50/60 text-rose-600 rounded-full flex items-center justify-center text-2xl shadow-sm group-hover:bg-gradient-to-tr group-hover:from-amber-500 group-hover:via-rose-500 group-hover:to-purple-600 group-hover:text-white transition-all duration-300 transform group-hover:-translate-y-1">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <span class="text-xs font-semibold text-stone-600 group-hover:text-stone-900 transition-colors">Instagram</span>
+                </a>
+                <a href="https://tiktok.com/@tiendasolnatura" target="_blank" class="flex flex-col items-center gap-2.5 group">
+                    <div class="w-14 h-14 bg-stone-100/80 text-stone-800 rounded-full flex items-center justify-center text-xl shadow-sm group-hover:bg-stone-950 group-hover:text-white transition-all duration-300 transform group-hover:-translate-y-1">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </div>
+                    <span class="text-xs font-semibold text-stone-600 group-hover:text-stone-900 transition-colors">TikTok</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: NOSOTROS -->
+        <section id="nosotros" class="mt-12 bg-gradient-to-br from-amber-50/30 to-rose-50/15 rounded-3xl p-8 md:p-12 border border-white shadow-sm">
+            <div class="max-w-3xl mx-auto text-center md:text-left">
+                <span class="text-[10px] tracking-widest font-semibold text-emerald-700 uppercase block mb-2">Amor por tu piel</span>
+                <h2 class="font-serif text-2xl sm:text-3xl text-stone-800 mb-5 text-center md:text-left">Sobre Sol Natura</h2>
+                <div class="space-y-4 text-xs sm:text-sm text-stone-600 leading-relaxed">
+                    <p>En <strong class="text-stone-800 font-semibold">Sol Natura</strong> nacimos con un propósito claro: transformar el ritual diario de cuidado personal en un momento sagrado de conexión contigo mismo...</p>
+                    <p>Nos apasiona acercarte una selección exclusiva de <strong class="text-emerald-700 font-semibold">productos de bienestar</strong>...</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL DETALLES -->
+    <div id="lightbox" class="hidden fixed inset-0 bg-stone-900/60 backdrop-blur-md z-50 flex flex-col justify-center items-center p-4 transition-all duration-300">
+        <div class="bg-white w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl relative border border-stone-100 transform scale-95 transition-transform duration-300 flex flex-col">
+            <button id="close-lightbox" class="absolute top-4 right-4 bg-white/80 backdrop-blur-sm text-stone-700 hover:text-rose-600 text-sm w-8 h-8 rounded-full flex items-center justify-center shadow-sm z-10 transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="bg-stone-50 aspect-square overflow-hidden flex items-center justify-center">
+                <img id="lightbox-img" src="" alt="Producto Ampliado" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5 bg-white">
+                <h3 id="lightbox-title" class="font-serif text-base text-stone-800 mb-1"></h3>
+                <p id="lightbox-price" class="text-lg font-bold text-rose-700 tracking-wide"></p>
+                
+                <div class="mt-4 space-y-2">
+                    <button id="modal-buy-btn" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold tracking-wider uppercase py-2.5 px-4 rounded-xl shadow-sm transition flex items-center justify-center space-x-2">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> <span>Comprar ya</span>
+                    </button>
+                    <button id="modal-add-btn" class="w-full bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-semibold tracking-wider uppercase py-2.5 px-4 rounded-xl transition flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-plus text-xs"></i> <span>Agregar al carrito</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SIDEBAR CARRITO -->
+    <div id="cart-sidebar" class="fixed inset-y-0 right-0 w-full sm:w-96 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col border-l border-stone-100">
+        <div class="p-5 border-b border-stone-100 flex justify-between items-center bg-stone-50/50">
+            <h3 class="font-serif text-base font-bold text-stone-800 flex items-center gap-2">
+                <i class="fa-solid fa-bag-shopping text-rose-500"></i> Mi Bolsa de Compras
+            </h3>
+            <button id="close-cart" class="text-stone-400 hover:text-stone-700 text-xl p-2 rounded-full hover:bg-stone-100 transition-colors"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-4 custom-scrollbar">
+            <p id="empty-cart-msg" class="text-stone-400 text-xs text-center py-12">Tu carrito está vacío.</p>
+        </div>
+
+        <div class="p-5 border-t border-stone-100 bg-stone-50/50 space-y-3.5">
+            <div class="flex justify-between text-sm">
+                <p class="text-stone-500 font-medium">Total Estimado</p>
+                <p id="cart-total" class="text-lg font-bold text-stone-900">$0</p>
+            </div>
+            <button id="checkout-btn" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs tracking-wider uppercase py-3.5 px-4 rounded-xl shadow-md transition flex items-center justify-center space-x-2">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Finalizar Pedido por WhatsApp</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- BOTÓN FLOTANTE WA -->
+    <a id="floating-wa" href="#" target="_blank" class="fixed bottom-6 right-6 bg-emerald-600 hover:bg-emerald-700 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-110 z-40">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+    </a>
+
+    <script>
+        // --- Base de Datos de Productos (EXTENSIONES COMPLETAMENTE EN MAYÚSCULAS) ---
+        const products = [
+            { id: 1, category: "perfumeria", subcategory: "femenino", title: "Perfume Ekos Frescor Acai", price: 24990, img: "productos/perfume ekos frescor acai.JPEG", inStock: true },
+            { id: 2, category: "perfumeria", subcategory: "femenino", title: "Perfume Ekos Frescor Cacao", price: 24990, img: "productos/perfume ekos frescor cacao.JPEG", inStock: true },
+            { id: 3, category: "perfumeria", subcategory: "femenino", title: "Perfume Humor Liberta", price: 24990, img: "productos/perfume humor liberta.JPEG", inStock: true },
+            { id: 4, category: "perfumeria", subcategory: "splash", title: "Perfume Budy Splash Tododia Cereza y Avellana", price: 24990, img: "productos/budy splash tododia cereza y avellana.JPEG", inStock: true },
+            { id: 5, category: "perfumeria", subcategory: "splash", title: "Perfume Budy Splash Tododia Frambuesa y Pimienta Rosa", price: 24990, img: "productos/budy splash tododia frambuesa y pimienta rosa.JPEG", inStock: true },
+            { id: 6, category: "perfumeria", subcategory: "femenino", title: "Perfume Luna Divina", price: 24990, img: "productos/perfume luna divina.JPEG", inStock: true },
+            { id: 7, category: "perfumeria", subcategory: "splash", title: "Perfume Budy Splash Tododia Frutas Rojas", price: 12490, img: "productos/budy splash tododia frutas rojas.JPEG", inStock: true },
+            { id: 8, category: "perfumeria", subcategory: "masculino", title: "Perfume Homem Cor.agio Masculino - Natura", price: 29990, img: "productos/homem-coragio.JPG", inStock: true },
+            
+            { id: 9, category: "hombre", subcategory: "barberia", title: "Crema para Afeitar Sr. N - Natura", price: 6490, img: "productos/crema-afeitar-srn.JPG", inStock: true },
+            { id: 10, category: "hombre", subcategory: "barberia", title: "Bálsamo Post Afeitar Sr. N - Natura", price: 7990, img: "productos/balsamo-srn.JPG", inStock: true },
+            { id: 11, category: "hombre", subcategory: "rostro-m", title: "Gel Crema Antiseñales Homem - Natura", price: 14990, img: "productos/antisenales-homem.JPG", inStock: true },
+            { id: 12, category: "hombre", subcategory: "fragancias-m", title: "Colonia Homem Clásico - Natura", price: 26990, img: "productos/colonia-homem.JPG", inStock: true },
+
+            { id: 13, category: "desodorantes", subcategory: "masculino", title:"Desodorante Roll-On Hombre - Avon", price: 4990, img: "productos/desodorante-hombre.JPG", inStock: true },
+            { id: 14, category: "desodorantes", subcategory: "femenino", title: "desodorante Femenino Tododia Sin pPerfume", price: 4990, img: "productos/desodorante femenino tododia sin perfume.JPEG", inStock: true },
+            { id: 15, category: "desodorantes", subcategory: "femenino", title: "Desodorante Femenino Invisible Erva Doce", price: 4990, img: "productos/desodorante femenino tododia invisible erva doce.JPEG", inStock: true },
+            { id: 16, category: "desodorantes", subcategory: "femenino", title: "Desodorante Femenino Tododia Piel Uniforme", price: 4990, img: "productos/desodorante femenino tododia piel uniforme.JPEG", inStock: true },
+            { id: 17, category: "desodorantes", subcategory: "femenino", title: "Desodorante Femenino Tododia Hojas de Limon y Guanabana", price: 4990, img: "productos/desodorante femenino tododia hojas de limon y guanabana.JPEG", inStock: true },
+            
+            { id: 18, category: "corporal", subcategory: "crema-manos", title: "Crema de Manos Ekos Acai", price: 6990, img: "productos/crema de manos ekos acai.JPEG", inStock: true },
+            { id: 19, category: "corporal", subcategory: "crema-cuerpo", title: "Crema para el Cuerpo Acai", price: 22000, img: "productos/crema para el cuerpo acai.JPG", inStock: true },
+            { id: 20, category: "corporal", subcategory: "crema-cuerpo", title: "Crema para el Cuerpo Andiroba", price: 22000, img: "productos/crema para el cuerpo andiroba.JPG", inStock: true },
+            { id: 21, category: "corporal", subcategory: "crema-cuerpo", title: "Crema para el Cuerpo Castanha", price: 22000, img: "productos/crema para el cuerpo castanha.JPG", inStock: true },
+            { id: 22, category: "corporal", subcategory: "crema-cuerpo", title: "Crema para el Cuerpo Tododia Avellana y Casis", price: 22000, img: "productos/crema para el cuerpo tododia avellana y casis.JPG", inStock: true },
+            { id: 23, category: "corporal", subcategory: "crema-cuerpo", title: "Crema para el Cuerpo Tododia Frambuesa y Pimienta Rosa", price: 22000, img: "productos/crema para el cuerpo tododia frambueza y pimienta rosa.JPEG", inStock: true },
+            { id: 24, category: "corporal", subcategory: "crema-cuerpo", title: "Crema para el Cuerpo Tukuma", price: 22000, img: "productos/crema para el cuerpo tukuma.JPG", inStock: true },
+            { id: 25, category: "corporal", subcategory: "crema-cuerpo", title: "Crema Reafirmante para el Cuerpo Cupuacu", price: 22000, img: "productos/crema reafirmante para el cuerpo cupuacu.JPG", inStock: true },
+            { id: 26, category: "corporal", subcategory: "crema-cuerpo", title: "Exfoliante para el Cuerpo Tododia Acerola y Heibisco", price: 22000, img: "productos/exfoliante para el cuerpo tododia acerola heibisco.JPG", inStock: true },
+            { id: 27, category: "corporal", subcategory: "crema-cuerpo", title: "Pulpa para el Cuerpo Pitanga", price: 22000, img: "productos/pulpa para el cuerpo pitanga.JPG", inStock: false },
+            { id: 28, category: "corporal", subcategory: "crema-cuerpo", title: "Jabones de Tocador Tododia Frambuesa y Vainilla Dorada", price: 22000, img: "productos/jabones de tocador tododia frambueza y vainilla dorada.JPG", inStock: true },
+            { id: 29, category: "corporal", subcategory: "crema-cuerpo", title: "Crema para el Cuerpo Ucuuba", price: 22000, img: "productos/crema para el cuerpo ucuuba.JPG", inStock: true },
+            { id: 30, category: "corporal", subcategory: "crema-cuerpo", title: "Crema Reafirmante para el Cuerpo Cacao", price: 22000, img: "productos/crema para el cuerpo cacao.JPEG", inStock: true },
+            { id: 31, category: "corporal", subcategory: "crema-cuerpo", title: "Exfoliante para el Cuerpo Tododia Acerola y Heibisco", price: 22000, img: "productos/exfoliante para el cuerpo tododia acerola heibisco.JPG", inStock: true },
+            { id: 32, category: "corporal", subcategory: "crema-cuerpo", title: "Jabón Líquido Exfoliante Acai", price: 22000, img: "productos/jabon liquido exfoliante acai.JPG", inStock: true },
+            { id: 33, category: "corporal", subcategory: "crema-cuerpo", title: "Pulpa para el Cuerpo Pitanga", price: 22000, img: "productos/pulpa para el cuerpo pitanga.JPG", inStock: true },
+            { id: 34, category: "corporal", subcategory: "crema-cuerpo", title: "Jabones de Tocador Tododia Frambuesa y Vainilla Dorada", price: 22000, img: "productos/jabones de tocador tododia frambueza y vainilla dorada.JPG", inStock: true },
+            { id: 35, category: "corporal", subcategory: "crema-manos", title: "Crema de Manos Ekos Cacao", price: 6990, img: "productos/crema de manos ekos cacao.JPEG", inStock: true },
+            { id: 36, category: "corporal", subcategory: "crema-cuerpo", title: "Crema para el Cuerpo Ekos Ucuuba", price: 22000, img: "productos/crema para el cuerpo ekos ucuuba.JPEG", inStock: true },
+
+            { id: 37, category: "cosmeticos", subcategory: "labiales", title: "Labial Ultra Matte - Avon", price: 4590, img: "productos/labial-ultra-matte.JPG", inStock: true },
+            { id: 38, category: "cabello", subcategory: "shampoo", title: "Shampoo Lumina Cabello Seco - Natura", price: 5990, img: "productos/shampoo-lumina.JPG", inStock: true }
+        ];
+
+        const subcategoryLabels = {
+            "femenino": "Femenino 🌸", "masculino": "Masculino 💼", "splash": "Splash ✨", "barberia": "Afeitado & Barbería 🪒", "rostro-m": "Rostro Hombre 🧴", "fragancias-m": "Fragancias Él 🕶️", "crema-manos": "Crema de Manos 🧴", "crema-cuerpo": "Crema de Cuerpo 🧴", "shampoo": "Shampoo 🧼", "labiales": "Labiales 💄"
+        };
+
+        let cart = []; let selectedProduct = null; let currentCategory = 'todos'; let currentSubcategory = 'todos';
+
+        // Selectores
+        const productGrid = document.getElementById('product-grid');
+        const categoryTitle = document.getElementById('category-title');
+        const productCount = document.getElementById('product-count');
+        const subContainer = document.getElementById('sub-category-container');
+        const subBar = document.getElementById('sub-category-bar');
+        const menuBtn = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        const cartToggleBtn = document.getElementById('cart-toggle-btn');
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const closeCart = document.getElementById('close-cart');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const emptyCartMsg = document.getElementById('empty-cart-msg');
+        const cartTotal = document.getElementById('cart-total');
+        const cartBadge = document.getElementById('cart-badge');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        const floatingWa = document.getElementById('floating-wa');
+        const menuWa = document.getElementById('menu-whatsapp');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxPrice = document.getElementById('lightbox-price');
+        const closeLightbox = document.getElementById('close-lightbox');
+        const modalBuyBtn = document.getElementById('modal-buy-btn');
+        const modalAddBtn = document.getElementById('modal-add-btn');
+
+        const waMessage = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola! Me gustaría hacer una consulta sobre los productos de Sol Natura.')}`;
+        floatingWa.href = waMessage; if (menuWa) menuWa.href = waMessage;
+
+        // Renderizado de Catálogo con encodeURI incorporado para manejar los espacios
+        function renderProducts() {
+            let filtered = products;
+            if (currentCategory !== 'todos') {
+                filtered = filtered.filter(p => p.category === currentCategory);
+                if (currentSubcategory !== 'todos') {
+                    filtered = filtered.filter(p => p.subcategory === currentSubcategory);
+                }
+            }
+            productCount.textContent = `${filtered.length} ${filtered.length === 1 ? 'producto' : 'productos'}`;
+            if(filtered.length === 0) {
+                productGrid.innerHTML = `<p class="text-stone-400 text-xs col-span-full text-center py-12">No hay productos en esta selección actualmente.</p>`;
+                return;
+            }
+
+            productGrid.innerHTML = filtered.map(product => {
+                const isOutOfStock = product.inStock === false;
+                return `
+                    <div class="bg-white rounded-2xl border border-stone-100 overflow-hidden flex flex-col justify-between group hover:shadow-md transition-shadow duration-300 ${isOutOfStock ? 'opacity-80' : ''}">
+                        <div class="relative overflow-hidden aspect-[4/5] bg-stone-50 flex items-center justify-center ${isOutOfStock ? 'cursor-default' : 'cursor-pointer'}" ${isOutOfStock ? '' : `onclick="openLightbox(${product.id})"`}>
+                            <img src="${encodeURI(product.img)}" alt="${product.title}" class="w-full h-full object-cover transition-transform duration-500 ${isOutOfStock ? '' : 'group-hover:scale-102'}">
+                            ${isOutOfStock ? `
+                            <div class="absolute inset-0 bg-stone-900/25 backdrop-blur-[1px] flex items-center justify-center z-10">
+                                <span class="bg-rose-600/95 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg border border-rose-500">Agotado</span>
+                            </div>` : ''}
+                            <span class="absolute bottom-2 left-2 bg-white/95 backdrop-blur-sm text-[9px] font-semibold text-stone-600 px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-sm z-20">
+                                ${subcategoryLabels[product.subcategory]?.replace(/[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD00-\uDFFF]/g, '') || product.subcategory}
+                            </span>
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xs font-medium text-stone-700 line-clamp-2 min-h-[32px]">${product.title}</h3>
+                                <p class="text-sm font-semibold text-rose-700 mt-2">$${product.price.toLocaleString('es-CL')}</p>
+                            </div>
+                            ${isOutOfStock ? `
+                                <button disabled class="mt-4 w-full bg-stone-100 text-stone-400 text-[11px] font-semibold tracking-wider uppercase py-2 rounded-xl cursor-not-allowed">Sin Stock</button>
+                            ` : `
+                                <button onclick="openLightbox(${product.id})" class="mt-4 w-full bg-stone-50 hover:bg-rose-50 hover:text-rose-700 text-[11px] font-semibold tracking-wider uppercase py-2 rounded-xl transition-colors">Ver Detalles</button>
+                            `}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function changeCategory(catName) {
+            currentCategory = catName; currentSubcategory = 'todos';
+            const mainTitles = {
+                todos: "Todo el Catálogo", perfumeria: "Perfumería & Fragancias", hombre: "Línea Especial de Cuidado Masculino 💼", corporal: "Cuidado Corporal & Manos", desodorantes: "Línea de Desodorantes", skin: "Skin / Cuidado Facial", cabello: "Cuidado del Cabello", cosmeticos: "Línea de Cosméticos y Maquillaje"
+            };
+            categoryTitle.textContent = mainTitles[catName];
+            updateSubcategoryBar();
+            document.querySelectorAll('.main-cat-btn').forEach(btn => {
+                const match = btn.getAttribute('onclick').includes(`'${catName}'`);
+                btn.className = match ? "main-cat-btn snap-start bg-stone-800 text-white text-xs font-medium px-4 py-2 rounded-full shadow-sm transition-all whitespace-nowrap" : "main-cat-btn snap-start bg-white text-stone-600 border border-stone-200/60 hover:border-rose-300 text-xs font-medium px-4 py-2 rounded-full transition-all whitespace-nowrap";
+            });
+            renderProducts();
+        }
+
+        function updateSubcategoryBar() {
+            if (currentCategory === 'todos') { subContainer.classList.add('hidden', 'opacity-0'); return; }
+            const uniqueSubs = [...new Set(products.filter(p => p.category === currentCategory).map(p => p.subcategory))];
+            let subButtons = `<button onclick="changeSubcategory('todos')" class="sub-cat-btn snap-start text-[11px] font-medium px-3 py-1.5 rounded-xl transition-all whitespace-nowrap ${currentSubcategory === 'todos' ? 'bg-rose-600 text-white shadow-sm' : 'bg-white text-stone-600 border border-stone-200/60'}">Ver Todos</button>`;
+            uniqueSubs.forEach(sub => {
+                const label = subcategoryLabels[sub] || sub;
+                subButtons += `<button onclick="changeSubcategory('${sub}')" class="sub-cat-btn snap-start text-[11px] font-medium px-3 py-1.5 rounded-xl transition-all whitespace-nowrap bg-white text-stone-600 border border-stone-200/60 hover:border-rose-300">${label}</button>`;
+            });
+            subBar.innerHTML = subButtons; subContainer.classList.remove('hidden');
+            setTimeout(() => subContainer.classList.remove('opacity-0'), 10);
+        }
+
+        function changeSubcategory(subName) {
+            currentSubcategory = subName;
+            document.querySelectorAll('.sub-cat-btn').forEach(btn => {
+                const targetLabel = subcategoryLabels[subName] || "Ver Todos";
+                const isSelected = (subName === 'todos' && btn.textContent.includes('Ver Todos')) || btn.textContent === targetLabel;
+                btn.className = isSelected ? "sub-cat-btn snap-start text-[11px] font-medium px-3 py-1.5 rounded-xl transition-all whitespace-nowrap bg-rose-600 text-white shadow-sm" : "sub-cat-btn snap-start text-[11px] font-medium px-3 py-1.5 rounded-xl transition-all whitespace-nowrap bg-white text-stone-600 border border-stone-200/60 hover:border-rose-300";
+            });
+            renderProducts();
+        }
+
+        menuBtn.addEventListener('click', (e) => { e.stopPropagation(); dropdownMenu.classList.toggle('hidden'); });
+        document.addEventListener('click', () => dropdownMenu.classList.add('hidden'));
+        cartToggleBtn.addEventListener('click', () => cartSidebar.classList.remove('translate-x-full'));
+        closeCart.addEventListener('click', () => cartSidebar.classList.add('translate-x-full'));
+        dropdownMenu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => dropdownMenu.classList.add('hidden')); });
+
+        function openLightbox(id) {
+            const product = products.find(p => p.id === id); if (!product) return;
+            selectedProduct = product; lightboxImg.src = encodeURI(product.img); lightboxTitle.textContent = product.title;
+            lightboxPrice.textContent = `Precio: $${product.price.toLocaleString('es-CL')}`; lightbox.classList.remove('hidden');
+        }
+        function closeLightboxModal() { lightbox.classList.add('hidden'); }
+        closeLightbox.addEventListener('click', closeLightboxModal);
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightboxModal(); });
+
+        modalBuyBtn.addEventListener('click', () => {
+            if (selectedProduct) {
+                const message = `Hola, quiero comprar el producto ${selectedProduct.title} que cuesta $${selectedProduct.price.toLocaleString('es-CL')}`;
+                window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+            }
+        });
+        modalAddBtn.addEventListener('click', () => { if (selectedProduct) { addToCart(selectedProduct.id); closeLightboxModal(); } });
+
+        function addToCart(id) {
+            const product = products.find(p => p.id === id); const existingItem = cart.find(item => item.id === id);
+            if (existingItem) { existingItem.quantity += 1; } else { cart.push({ ...product, quantity: 1 }); }
+            updateCart(); cartSidebar.classList.remove('translate-x-full');
+        }
+        function removeFromCart(id) { cart = cart.filter(item => item.id !== id); updateCart(); }
+
+        function updateCart() {
+            if (cart.length === 0) {
+                emptyCartMsg.classList.remove('hidden'); cartItemsContainer.querySelectorAll('.cart-item-row').forEach(el => el.remove()); cartBadge.classList.add('hidden');
+            } else {
+                emptyCartMsg.classList.add('hidden'); cartBadge.classList.remove('hidden');
+                cartItemsContainer.querySelectorAll('.cart-item-row').forEach(el => el.remove());
+                let totalItems = 0;
+                const rowsHtml = cart.map(item => {
+                    totalItems += item.quantity;
+                    return `
+                        <div class="cart-item-row flex items-center justify-between border-b pb-3 border-stone-100">
+                            <div class="flex items-center space-x-3">
+                                <img src="${encodeURI(item.img)}" class="w-11 h-14 object-cover rounded-xl bg-stone-50">
+                                <div>
+                                    <h4 class="text-xs font-medium text-stone-800 line-clamp-1">${item.title}</h4>
+                                    <p class="text-[11px] text-stone-400 mt-0.5">$${item.price.toLocaleString('es-CL')} x ${item.quantity}</p>
+                                </div>
+                            </div>
+                            <button onclick="removeFromCart(${item.id})" class="text-stone-300 hover:text-rose-600 p-2 transition-colors"><i class="fa-solid fa-trash-can text-sm"></i></button>
+                        </div>
+                    `;
+                }).join('');
+                emptyCartMsg.insertAdjacentHTML('afterend', rowsHtml); cartBadge.textContent = totalItems;
+            }
+            const totalSum = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+            cartTotal.textContent = `$${totalSum.toLocaleString('es-CL')}`;
+        }
+
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) { alert('Tu carrito está vacío.'); return; }
+            let message = "🛍️ *NUEVO PEDIDO DESDE SOL NATURA*\n\n";
+            cart.forEach((item, index) => { message += `${index + 1}. *${item.title}*\n   Cant: ${item.quantity} x $${item.price.toLocaleString('es-CL')}\n`; });
+            const totalSum = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+            message += `\n💰 *Total a Pagar:* $${totalSum.toLocaleString('es-CL')}\n\nPor favor confirmanos disponibilidad. ¡Muchas gracias!`;
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+        });
+
+        renderProducts();
+    </script>
+</body>
+</html>
