@@ -262,12 +262,15 @@
             { id: 37, category: "cosmeticos", subcategory: "labiales", title: "Labial Ultra Matte - Avon", price: 4590, img: "productos/labial-ultra-matte.JPG", inStock: true },
             { id: 38, category: "cabello", subcategory: "shampoo", title: "Shampoo Lumina Cabello Seco - Natura", price: 5990, img: "productos/shampoo-lumina.JPG", inStock: true }
         ];
+        
+        // Forzar a que todas las rutas de imágenes se busquen en minúsculas para GitHub
+products.forEach(p => p.img = p.img.toLowerCase());
 
         const subcategoryLabels = {
             "femenino": "Femenino 🌸", "masculino": "Masculino 💼", "splash": "Splash ✨", "barberia": "Afeitado & Barbería 🪒", "rostro-m": "Rostro Hombre 🧴", "fragancias-m": "Fragancias Él 🕶️", "crema-manos": "Crema de Manos 🧴", "crema-cuerpo": "Crema de Cuerpo 🧴", "shampoo": "Shampoo 🧼", "labiales": "Labiales 💄"
         };
-
-        let cart = []; let selectedProduct = null; let currentCategory = 'todos'; let currentSubcategory = 'todos';
+        
+         let cart = []; let selectedProduct = null; let currentCategory = 'todos'; let currentSubcategory = 'todos';
 
         // Selectores
         const productGrid = document.getElementById('product-grid');
