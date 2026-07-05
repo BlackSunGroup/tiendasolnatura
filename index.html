@@ -355,7 +355,7 @@
                 return `
                     <div class="bg-white rounded-2xl border border-stone-100 overflow-hidden flex flex-col justify-between group hover:shadow-md transition-shadow duration-300 ${isOutOfStock ? 'opacity-80' : ''}">
                         <div class="relative overflow-hidden aspect-[4/5] bg-stone-50 flex items-center justify-center ${isOutOfStock ? '' : `onclick="openLightbox(${product.id})"`}" ${isOutOfStock ? '' : `onclick="openLightbox(${product.id})"`}>
-                            <img src="${encodeURI(product.img)}" alt="${product.title}" class="w-full h-full object-cover transition-transform duration-500 ${isOutOfStock ? '' : 'hover:scale-105'}">
+                            <img src="${product.img}" alt="${product.title}" class="w-full h-full object-cover transition-transform duration-500 ${isOutOfStock ? '' : 'hover:scale-105'}">
                             ${isOutOfStock ? `
                             <div class="absolute inset-0 bg-stone-900/25 backdrop-blur-[1px] flex items-center justify-center z-10">
                                 <span class="bg-rose-600/95 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg border border-rose-500">Agotado</span>
@@ -436,7 +436,7 @@
 
         function openLightbox(id) {
             const product = products.find(p => p.id === id); if (!product) return;
-            selectedProduct = product; lightboxImg.src = encodeURI(product.img); lightboxTitle.textContent = product.title;
+            selectedProduct = product; lightboxImg.src = product.img; lightboxTitle.textContent = product.title;
             lightboxPrice.textContent = `Precio: $${product.price.toLocaleString('es-CL')}`; lightbox.classList.remove('hidden');
         }
         function closeLightboxModal() { lightbox.classList.add('hidden'); }
@@ -470,7 +470,7 @@
                     return `
                         <div class="cart-item-row flex items-center justify-between border-b pb-3 border-stone-100">
                             <div class="flex items-center space-x-3">
-                                <img src="${encodeURI(item.img)}" class="w-11 h-14 object-cover rounded-xl bg-stone-50">
+                                <img src="${item.img}" class="w-11 h-14 object-cover rounded-xl bg-stone-50">
                                 <div>
                                     <h4 class="text-xs font-medium text-stone-800 line-clamp-1">${item.title}</h4>
                                     <p class="text-[11px] text-stone-400 mt-0.5">$${item.price.toLocaleString('es-CL')} x ${item.quantity}</p>
