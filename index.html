@@ -231,11 +231,11 @@
     <script>
         // --- Base de Datos de Productos ---
         const products = [
-            { id: 1, category: "perfumeria", subcategory: "femenino", title: "Perfume Ekos Frescor Acai", price: 23490, img: "productos/perfume ekos frescor acai.JPEG", inStock: true },
-            { id: 2, category: "perfumeria", subcategory: "femenino", title: "Perfume Ekos Frescor Cacao", price: 23490, img: "productos/perfume ekos frescor cacao.JPEG", inStock: true },
+            { id: 1, category: "perfumeria", subcategory: "femenino", title: "Perfume Ekos Frescor Acai", price: 23490, img: "productos/perfume ekos frescor acai.JPEG", inStock: false },
+            { id: 2, category: "perfumeria", subcategory: "femenino", title: "Perfume Ekos Frescor Cacao", price: 23490, img: "productos/perfume ekos frescor cacao.JPEG", inStock: false },
             { id: 3, category: "perfumeria", subcategory: "femenino", title: "Perfume Humor Liberta", price: 33990, img: "productos/perfume humor liberta.JPEG", inStock: false },
             { id: 4, category: "perfumeria", subcategory: "splash", title: "Perfume Body Splash Tododia Cereza y Avellana", price: 14790, img: "productos/body splash tododia cereza y avellana.JPEG", inStock: false },
-            { id: 5, category: "perfumeria", subcategory: "splash", title: "Perfume Body Splash Tododia Frambuesa y Pimienta Rosa", price: 14790, img: "productos/body splash tododia frambuesa y pimienta rosa.JPEG", inStock: true },
+            { id: 5, category: "perfumeria", subcategory: "splash", title: "Perfume Body Splash Tododia Frambuesa y Pimienta Rosa", price: 14790, img: "productos/body splash tododia frambuesa y pimienta rosa.JPEG", inStock: false },
             { id: 6, category: "perfumeria", subcategory: "femenino", title: "Perfume Luna Divina", price: 36990, img: "productos/perfume luna divina.JPEG", inStock: false },
             { id: 7, category: "perfumeria", subcategory: "splash", title: "Perfume Body Splash Tododia Frutas Rojas", price: 14790, img: "productos/body splash tododia frutas rojas.JPEG", inStock: true },
             { id: 8, category: "perfumeria", subcategory: "masculino", title: "Perfume Natura Homem Cor Agio", price: 48000, img: "productos/perfume natura homem cor agio.WEBP", inStock: false },
@@ -260,7 +260,7 @@
             { id: 23, category: "corporal", subcategory: "crema-cuerpo", title: "Crema para el Cuerpo Tododia Frambuesa y Pimienta Rosa", price: 15000, img: "productos/crema para el cuerpo tododia frambueza y pimienta rosa.JPEG", inStock: true },
             { id: 24, category: "corporal", subcategory: "crema-cuerpo", title: "Crema para el Cuerpo Tukuma", price: 13000, img: "productos/crema para el cuerpo tukuma.JPG", inStock: true },
             { id: 25, category: "corporal", subcategory: "crema-cuerpo", title: "Crema Reafirmante para el Cuerpo Cupuacu", price: 17000, img: "productos/crema reafirmante para el cuerpo cupuacu.JPG", inStock: true },
-            { id: 26, category: "corporal", subcategory: "crema-cuerpo", title: "Exfoliante para el Cuerpo Tododia Acerola y Heibisco", price: 11000, img: "productos/exfoliante para el cuerpo tododia acerola heibisco.JPG", inStock: true },
+            { id: 26, category: "corporal", subcategory: "crema-cuerpo", title: "Exfoliante para el Cuerpo Tododia Acerola y Heibisco", price: 11000, img: "productos/exfoliante para el cuerpo tododia acerola heibisco.JPG", inStock: false },
             { id: 27, category: "corporal", subcategory: "crema-cuerpo", title: "Pulpa para el Cuerpo Pitanga", price: 17000, img: "productos/pulpa para el cuerpo pitanga.JPG", inStock: true },
             { id: 28, category: "corporal", subcategory: "jabon", title: "Jabon de Tocador Tododia Frambuesa y Pimienta Rosa", price: 10000, img: "productos/jabon de tocador tododia frambuesa y pimienta rosa.JPEG", inStock: true },
             { id: 29, category: "corporal", subcategory: "crema-cuerpo", title: "Crema para el Cuerpo Ucuuba", price: 17000, img: "productos/crema para el cuerpo ucuuba.JPG", inStock: true },
@@ -279,18 +279,18 @@
             
             // CABELLO (Subcategorías: shampoo, balsamo)
             { id: 43, category: "cabello", subcategory: "balsamo", title: "Natura Lumina Acondicionador Fuerza y Restauracion Molecular", price: 8000, img: "productos/natura lumina acondicionador fuerza y restauracion molecular.JPEG", inStock: false },
-            { id: 44, category: "cabello", subcategory: "shampoo", title: "Natura Lumina Shampoo Matizacion y Restauracion", price: 8000, img: "productos/natura lumina shampoo matizacion y restauracion.JPEG", inStock: true },
+            { id: 44, category: "cabello", subcategory: "shampoo", title: "Natura Lumina Shampoo Matizacion y Restauracion", price: 8000, img: "productos/natura lumina shampoo matizacion y restauracion.JPEG", inStock: false },
             { id: 45, category: "cabello", subcategory: "balsamo", title: "Natura Lumina Matizador Matizacion y Restauracion", price: 12000, img: "productos/natura lumina matizador matizacion y restauracion.JPEG", inStock: true },
-            { id: 46, category: "cabello", subcategory: "shampoo", title: "Natura Lumina Protector Térmico Fuerza y Restauración Molecular", price: 13690, img: "productos/natura lumina protector termico fuerza y restauracion molecular.JPEG", inStock: true },
+            { id: 46, category: "cabello", subcategory: "shampoo", title: "Natura Lumina Protector Térmico Fuerza y Restauración Molecular", price: 13690, img: "productos/natura lumina protector termico fuerza y restauracion molecular.JPEG", inStock: false},
             { id: 47, category: "cabello", subcategory: "shampoo", title: "Natura Lumina Shampoo Fuerza y Restauración Molecular", price: 8000, img: "productos/natura lumina shampoo fuerza y restauracion molecular.JPEG", inStock: false },
             { id: 48, category: "cabello", subcategory: "shampoo", title: "Natura Lumina Mascarilla Fuerza y Restauración Molecular", price: 9790, img: "productos/natura lumina mascarilla fuerza y restauracion molecular.JPEG", inStock: false },
             
             
-            { id: 102, category: "corporal", subcategory: "crema-cuerpo", title: "Natura Tododia Crema para el Cuerpo Cereza y Avellana", price: 15000, img: "productos/natura tododia crema para el cuerpo cereza y avellana.WEBP", inStock: true },
+            { id: 102, category: "corporal", subcategory: "crema-cuerpo", title: "Natura Tododia Crema para el Cuerpo Cereza y Avellana", price: 15000, img: "productos/natura tododia crema para el cuerpo cereza y avellana.WEBP", inStock: false },
             { id: 51, category: "corporal", subcategory: "crema-cuerpo", title: "Natura Tododia Crema para el Cuerpo Acerola Heibisco", price: 15000, img: "productos/natura tododia crema para el cuerpo acerola heibisco.WEBP", inStock: false },
             { id: 52, category: "desodorantes", subcategory: "femenino", title: "Desodorante Avon Pasion Gitana", price: 5000, img: "productos/desodorante avon pasion gitana.WEBP", inStock: true },
-            { id: 53, category: "perfumeria", subcategory: "femenino", title: "Perfume Natura Kaiak Oceano", price: 25000, img: "productos/perfume natura kaiak oceano.JPG", inStock: true },
-            { id: 54, category: "corporal", subcategory: "jabon", title: "Jabon Liquido Cremoso para el Cuerpo Ekos Castanha", price: 7190, img: "productos/jabon liquido cremoso para el cuerpo ekos castanha.WEBP", inStock: true },
+            { id: 53, category: "perfumeria", subcategory: "femenino", title: "Perfume Natura Kaiak Oceano", price: 25000, img: "productos/perfume natura kaiak oceano.JPG", inStock: false },
+            { id: 54, category: "corporal", subcategory: "jabon", title: "Jabon Liquido Cremoso para el Cuerpo Ekos Castanha", price: 7190, img: "productos/jabon liquido cremoso para el cuerpo ekos castanha.WEBP", inStock: false },
             { id: 55, category: "corporal", subcategory: "jabon", title: "Jabon Liquido Cremoso para el Cuerpo Ekos Maracuja", price: 7190, img: "productos/jabon liquido para el cuerpo ekos maracuja.WEBP", inStock: false },
             { id: 56, category: "corporal", subcategory: "jabon", title: "Jabon Liquido Exfoliante para el Cuerpo Ekos Maracuja", price: 7390, img: "productos/jabon liquido exfoliante para el cuerpo ekos maracuja.WEBP", inStock: false },
             { id: 57, category: "perfumeria", subcategory: "femenino", title: "Perfume Avon Far Away 50ml", price: 20000, img: "productos/perfume avon far away 50ml.WEBP", inStock: true },
@@ -317,23 +317,23 @@
             { id: 77, category: "cosmeticos", subcategory: "esmaltes", title: "Avon Color Trend 10 Free Queratine + Pantenol Doce de Pistache", price: 3500, img: "productos/avon color trend 10 free queratine + pantenol doce de pistache.JFIF", inStock: true },
             { id: 78, category: "cosmeticos", subcategory: "labiales", title: "avon color trend hidratante labial amora mora", price: 4000, img: "productos/avon color trend hidratante labial amora mora.JFIF", inStock: true },
             { id: 79, category: "cosmeticos", subcategory: "labiales", title: "avon color trend hidratante labial amora morango fresa", price: 4000, img: "productos/avon color trend hidratante labial amora morango fresa.JFIF", inStock: true },
-            { id: 80, category: "skin", subcategory: "rostro-c", title: "clrearskin avon controle de brilho sabonete y poros de limpieza facial em geleia", price: 5000, img: "productos/clrearskin avon controle de brilho sabonete y poros de limpieza facial em geleia.JFIF", inStock: true },
+            { id: 80, category: "skin", subcategory: "rostro-c", title: "clrearskin avon controle de brilho sabonete y poros de limpieza facial em geleia", price: 5000, img: "productos/clrearskin avon controle de brilho sabonete y poros de limpieza facial em geleia.JFIF", inStock: false },
             { id: 81, category: "skin", subcategory: "rostro-c", title: "clrearskin avon controle de brilho sabonete y poros sabonete gel de limpieza facial", price: 5000, img: "productos/clrearskin avon controle de brilho sabonete y poros sabonete gel de limpieza facial.JFIF", inStock: true },
             { id: 82, category: "skin", subcategory: "rostro-c", title: "avon care mascara de limpieza facial com pepino e aloe vera 3 em 1", price: 7000, img: "productos/avon care mascara de limpieza facial com pepino e aloe vera 3 em 1.WEBP", inStock: true },
             { id: 83, category: "cosmeticos", subcategory: "pack", title: "Pack Regalo Humor Mas Faces", price: 25000, img: "productos/pack regalo humor mas faces.JPEG", inStock: true },
             { id: 84, category: "perfumeria", subcategory: "masculino", title: "Perfume Natura Homem Evolution", price: 48000, img: "productos/perfume natura homem evolution.JPEG", inStock: true },
             { id: 85, category: "corporal", subcategory: "crema-manos", title: "Ekos natura crema Hidratante para manos maracuya", price: 8390, img: "productos/ekos natura crema hidratante para manos maracuya.JPEG", inStock: true },
             { id: 86, category: "perfumeria", subcategory: "masculino", title: "Perfume Natura Homem Identidad", price: 40000, img: "productos/perfume natura homem identidad.JPEG", inStock: true },
-            { id: 87, category: "perfumeria", subcategory: "splash", title: "Body Splash ciruela y Flor de vainilla", price: 14790, img: "productos/body splash ciruela y flor de vainilla.JPEG", inStock: true },
+            { id: 87, category: "perfumeria", subcategory: "splash", title: "Body Splash ciruela y Flor de vainilla", price: 14790, img: "productos/body splash ciruela y flor de vainilla.JPEG", inStock: false },
             { id: 88, category: "corporal", subcategory: "crema-manos", title: "Natura Ekos Crema Manos Castaña", price: 8390, img: "productos/natura ekos crema manos Castaña.JPEG", inStock: true },
             { id: 89, category: "corporal", subcategory: "crema-manos", title: "Natura Ekos Crema Manos Pitanga", price: 8390, img: "productos/natura ekos crema manos pitanga.JPEG", inStock: true },
             { id: 90, category: "corporal", subcategory: "crema-manos", title: "Natura Ekos Crema Manos Tukuma", price: 8390, img: "productos/natura ekos crema manos tukuma.JPEG", inStock: true },
-            { id: 91, category: "perfumeria", subcategory: "splash", title: "Body Splash Humor Primero 200ml", price: 15000, img: "productos/body splash humor primero 200ml.JPEG", inStock: true },
+            { id: 91, category: "perfumeria", subcategory: "splash", title: "Body Splash Humor Primero 200ml", price: 15000, img: "productos/body splash humor primero 200ml.JPEG", inStock: false },
             { id: 92, category: "corporal", subcategory: "crema-cuerpo", title: "Natura Ekos Crema para los pies Castaña", price: 8390, img: "productos/natura ekos crema para los pies castaña.JPEG", inStock: true },
             { id: 93, category: "perfumeria", subcategory: "fragancias", title: "Natura Ekos Frescor Castaña", price: 23490, img: "productos/natura ekos frescor castaña.JPEG", inStock: true },
-            { id: 94, category: "perfumeria", subcategory: "splash", title: "Body Splash Mango Rosa", price: 14790, img: "productos/Body Splash mango rosa.JPEG", inStock: true },
-            { id: 95, category: "cosmeticos", subcategory: "labiales", title: "Balsamo Labial Mango Rosa y Agua de Coco", price: 5000, img: "productos/balsamo labial mango rosa y agua de coco.JPEG", inStock: true },
-            { id: 96, category: "corporal", subcategory: "jabon", title: "Jabones Barra Tocador Algodon", price: 5000, img: "productos/jabones barra tocador algodon.JPEG", inStock: true },
+            { id: 94, category: "perfumeria", subcategory: "splash", title: "Body Splash Mango Rosa", price: 14790, img: "productos/Body Splash mango rosa.JPEG", inStock: false },
+            { id: 95, category: "cosmeticos", subcategory: "labiales", title: "Balsamo Labial Mango Rosa y Agua de Coco", price: 5000, img: "productos/balsamo labial mango rosa y agua de coco.JPEG", inStock: false },
+            { id: 96, category: "corporal", subcategory: "jabon", title: "Jabones Barra Tocador Algodon", price: 5000, img: "productos/jabones barra tocador algodon.JPEG", inStock: false},
             { id: 97, category: "perfumeria", subcategory: "femenino", title: "Perfume Luna Clasico", price: 36990, img: "productos/perfume luna clasico.JPEG", inStock: true },
             { id: 98, category: "dia del niño", subcategory: "juegos", title: "Juego Dia del Niño Jenga", price: 10000, img: "productos/juego dia del niño jenga.JPEG", inStock: true },
             { id: 99, category: "corporal", subcategory: "crema-manos", title: "Crema Manos Frutas Rojas", price: 6000, img: "productos/crema manos frutas rojas.JPEG", inStock: true },
@@ -341,7 +341,7 @@
             { id: 101, category: "corporal", subcategory: "jabon", title: "Jabon líquido Exfoliante Frutas Rojas", price: 8300, img: "productos/jabon líquido exfoliante frutas rojas.JPEG", inStock: true },
             { id: 103, category: "perfumeria", subcategory: "masculino", title: "Perfume Kaiak Urbe", price: 34990, img: "productos/Perfume Kaiak Urbe.JPEG", inStock: true },
             { id: 104, category: "perfumeria", subcategory: "femenino", title: "Humor minha vida", price: 33990, img: "productos/Humor minha vida.JPEG", inStock: true },
-            { id: 105, category: "corporal", subcategory: "crema-cuerpo", title: "Crema cuerpo ciruela y flor de vainilla 200ml", price: 15000, img: "productos/Crema cuerpo ciruela y flor de vainilla 200ml.JPEG", inStock: true }
+            { id: 105, category: "corporal", subcategory: "crema-cuerpo", title: "Crema cuerpo ciruela y flor de vainilla 200ml", price: 13000, img: "productos/Crema cuerpo ciruela y flor de vainilla 200ml.JPEG", inStock: true }
 
             
         ];
